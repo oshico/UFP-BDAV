@@ -225,3 +225,22 @@ BEGIN
         ROLLBACK TRANSACTION;
     END
 END;
+
+-- =============================================
+-- 6. Backup
+-- =============================================
+
+BACKUP DATABASE master
+TO DISK = '/var/opt/mssql/backup/master.bak'
+WITH
+    FORMAT,
+    INIT,
+    COMPRESSION,
+    STATS = 10;
+
+
+RESTORE DATABASE master
+FROM DISK = '/var/opt/mssql/backup/master.bak'
+WITH
+    REPLACE,
+    STATS = 10;

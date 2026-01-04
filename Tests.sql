@@ -133,3 +133,10 @@ SELECT * FROM view_courses_not_purchased_last_3_months;
 SELECT * FROM view_courses_with_more_than_10_unique_students;
 
 SELECT * FROM view_top_5_courses_by_average_grade;
+
+-- =============================
+-- 11. TEST BACKUP
+-- =============================
+
+RESTORE VERIFYONLY
+FROM DISK = '/var/opt/mssql/backup/master.bak';
